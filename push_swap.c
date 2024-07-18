@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:48:11 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/17 18:07:26 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:44:46 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void fill(t_stack_list *stack_a, int value)
 {
 	t_stack_node *new_node = (t_stack_node *)malloc(sizeof(t_stack_node));
 	new_node->value = value;
-	new_node->current_pos = 0;
+/* 	new_node->current_pos = 0;
 	new_node->target_pos = 0;
 	new_node->index = 0;
 	new_node->cost_a = 0;
 	new_node->cost_b = 0;
 	new_node->next = NULL;
-	new_node->prev = NULL;
+	new_node->prev = NULL; */
 
 	if (stack_a->head == NULL)
 	{
@@ -53,11 +53,12 @@ void fill(t_stack_list *stack_a, int value)
 	}
 	else
 	{
-		new_node->next = stack_a->head;
-		stack_a->head->prev = new_node;
-		stack_a->head = new_node;
+		new_node->prev = stack_a->head;
+		stack_a->head->next = new_node;
+		stack_a->tail = new_node;
 	}
 	stack_a->lenght++;
+	printf("The list has %i nodes\n", stack_a->lenght);
 }
 
 int get_int(char *str, t_stack_list *stack){
@@ -75,6 +76,8 @@ int get_int(char *str, t_stack_list *stack){
 			i++;
 		}
 	}
+	printf("Head %i\n", stack->head->value);
+	printf("Tail %i\n", stack->tail->value);
 	return (0);
 }
 
@@ -83,10 +86,10 @@ int main (int argc, char **argv) {
 
 	if (argc == 2)
 	{
-		printf("argc == 2");
+		printf("argc == 2\n");
 		get_int(argv[1], &stack_a);
 	}
-	void print_list()
+
 	else
 		return (0);
 }
