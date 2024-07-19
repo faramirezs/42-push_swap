@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:48:11 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/18 13:44:46 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:08:50 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,30 @@ void fill(t_stack_list *stack_a, int value)
 	printf("The list has %i nodes\n", stack_a->lenght);
 }
 
+void swap(t_stack_list *stack){
+	t_stack_node *tmp;
+	tmp = stack->head;
+	stack->head = stack->head->next;
+	stack->head->next = tmp;
+}
+
+void deallocate(t_stack_node **head, t_stack_node **tail){
+	if(*head == NULL)
+	{
+		return;
+	}
+	t_stack_node *current = *head;
+
+	while(current->next != NULL)
+	{
+		current = current->next;
+		free(current->prev);
+	}
+	free(current);
+	*head = NULL;
+	*tail = NULL;
+}
+
 int get_int(char *str, t_stack_list *stack){
 	int i;
 
@@ -78,6 +102,7 @@ int get_int(char *str, t_stack_list *stack){
 	}
 	printf("Head %i\n", stack->head->value);
 	printf("Tail %i\n", stack->tail->value);
+	deallocate(&stack->head, &stack->tail);
 	return (0);
 }
 
@@ -93,3 +118,4 @@ int main (int argc, char **argv) {
 	else
 		return (0);
 }
+
