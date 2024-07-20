@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:48:11 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/19 11:08:50 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/20 15:19:41 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,42 @@ void fill(t_stack_list *stack_a, int value)
 }
 
 void swap(t_stack_list *stack){
-	t_stack_node *tmp;
-	tmp = stack->head;
-	stack->head = stack->head->next;
-	stack->head->next = tmp;
+	if (stack->head && stack->head->next)
+	{
+		t_stack_node *first;
+		t_stack_node *second;
+
+		second = stack->head;
+		first = stack->head->next;
+		first->prev = NULL;
+		second->next = first->next;
+		first->next = second;
+		if(second->next)
+			second->next->prev = second;
+		stack->head = first;
+	}
+	else
+		return;
 }
+
+void rotate (t_stack_list *stack){
+	if (stack->head && stack->head->next)
+	{
+		t_stack_node * tmp;
+
+		tmp = stack->head;
+		stack->head = stack->head->next;
+		tmp->prev = stack->tail;
+		stack->head->prev = NULL;
+		tmp->next = NULL;
+		tmp->prev->next = tmp;
+		stack->tail = tmp;
+	}
+	else
+		return;
+
+}
+
 
 void deallocate(t_stack_node **head, t_stack_node **tail){
 	if(*head == NULL)
