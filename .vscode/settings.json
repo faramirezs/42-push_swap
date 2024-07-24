@@ -2,5 +2,9 @@
 	"files.associations": {
 		"stdlib.h": "c",
 		"stddef.h": "c"
-	}
+	},
+	"C_Cpp.default.includePath": [
+		"/home/alramire/Documents/42-push_swap/libft",
+		"${workspaceFolder}/**"
+	]
 }

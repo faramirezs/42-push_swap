@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:48:11 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/20 18:32:28 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:52:52 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,31 @@ void reverse_rotate (t_stack_list *stack){
 }
 
 
+void push(t_stack_list *src, t_stack_list *dest)
+{
+	if (src->head)
+	{
+		t_stack_node *tmp_src;
+
+		tmp_src = src->head->next;
+		if (tmp_src)
+			tmp_src->prev = NULL;
+		else
+			src->tail = NULL;
+		src->head->next = dest->head;
+		if (dest->head)
+			dest->head->prev = src->head;
+		dest->head = src->head;
+		if (!dest->tail)
+			dest->tail = src->head;
+		src->head = tmp_src;
+		src->lenght--;
+		dest->lenght++;
+	}
+	else
+		return;
+}
+
 void deallocate(t_stack_node **head, t_stack_node **tail){
 	if(*head == NULL)
 	{
@@ -132,6 +157,21 @@ void deallocate(t_stack_node **head, t_stack_node **tail){
 	free(current);
 	*head = NULL;
 	*tail = NULL;
+}
+
+int print_stack(t_stack_list *stack)
+{
+	t_stack_node *current;
+	int i;
+
+	i = 1;
+	current = stack->head;
+	while (current)
+	{
+		printf("Stack print:\n\n Nodo[%i]: %d/n", i, current->value);
+		current = current->next;
+	}
+	return (0);
 }
 
 int get_int(char *str, t_stack_list *stack){
@@ -162,8 +202,10 @@ int main (int argc, char **argv) {
 	{
 		printf("argc == 2\n");
 		get_int(argv[1], &stack_a);
+		printf("after get_int\n");
+		swap(&stack_a);
+		print_stack(&stack_a);
 	}
-
 	else
 		return (0);
 }
