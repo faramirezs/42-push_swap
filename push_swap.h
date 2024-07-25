@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:02:09 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/24 13:56:35 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:39:13 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,27 @@ typedef struct s_stack_list
 
 }	t_stack_list;
 
+//stack
+void fill_stack (t_stack_list *stack, char **argv, int i);
+t_stack_list *new_stack (int argc, char **argv);
+void add_node (t_stack_list *stack, int value);
+void clear_stack (t_stack_list *stack);
+void clear_stack (t_stack_list *stack);
+int print_stack(t_stack_list *stack);
 
 
+//inputs
+char **norm_input(int argc, char **argv);
+char **norm_two_args(int argc, char **argv);
+int is_not_integer(char *argv);
+int out_of_limit(char *argv);
+void free_args(int argc, char **argv);
 
 //movements
+void swap(t_stack_list *stack);
+void rotate (t_stack_list *stack);
+void reverse_rotate (t_stack_list *stack);
+void push(t_stack_list *src, t_stack_list *dest);
 
 //algorithm
 

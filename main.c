@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   norm_input.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/24 17:26:02 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/24 17:38:02 by alramire         ###   ########.fr       */
+/*   Created: 2024/07/17 14:48:11 by alramire          #+#    #+#             */
+/*   Updated: 2024/07/25 18:35:48 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char **norm_input(int argc, char **argv)
-{
-	int i;
+int main (int argc, char **argv) {
+	t_stack_list *stack_a;
+	t_stack_list *stack_b;
 
-	if(argc == 2)
-		argv = norm_two_args(argc, argv);
-	else
-		exit(1);
-	return(argv);
+	stack_a = NULL;
+	stack_b = NULL;
+
+	argv = norm_input(argc, argv);
+	stack_a = new_stack(argc, argv);
+	print_stack(stack_a);
+
+/* 	if (argc == 2)
+	{
+		printf("argc == 2\n");
+		get_int(argv[1], stack_a);
+		printf("after get_int\n");
+		swap(stack_a);
+		print_stack(&stack_a);
+	}
+	else */
+	return (0);
 }
 
-char **norm_two_args(int argc, char **argv)
-{
-	int i;
-	char **split;
 
-	split = ft_split(argv[1], ' ');
-	if (!split || !*split)
-}
+

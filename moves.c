@@ -6,13 +6,14 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 10:59:32 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/24 16:50:51 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:03:50 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(t_stack_list *stack){
+void swap(t_stack_list *stack)
+{
 	if (stack->head && stack->head->next)
 	{
 		t_stack_node *first;
@@ -31,7 +32,8 @@ void swap(t_stack_list *stack){
 		return;
 }
 
-void rotate (t_stack_list *stack){
+void rotate (t_stack_list *stack)
+{
 	if (stack->head && stack->head->next)
 	{
 		t_stack_node * tmp;
@@ -49,7 +51,8 @@ void rotate (t_stack_list *stack){
 
 }
 
-void reverse_rotate (t_stack_list *stack){
+void reverse_rotate (t_stack_list *stack)
+{
 	if (stack->tail && stack->tail->prev)
 	{
 		t_stack_node * tmp;
