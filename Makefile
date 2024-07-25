@@ -6,7 +6,7 @@
 #    By: alramire <alramire@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 11:33:51 by alramire          #+#    #+#              #
-#    Updated: 2024/07/25 19:01:58 by alramire         ###   ########.fr        #
+#    Updated: 2024/07/25 19:06:34 by alramire         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = push_swap
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 INCLUDE = -I./include -I./libft
+LIBFT = ./libft/libft.a
 # SRCS = *.c
 SRCS = inputs.c stack.c moves.c main.c
 # OBJS = *.o
