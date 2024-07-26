@@ -6,7 +6,7 @@
 #    By: alramire <alramire@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 11:33:51 by alramire          #+#    #+#              #
-#    Updated: 2024/07/25 19:06:34 by alramire         ###   ########.fr        #
+#    Updated: 2024/07/26 09:31:37 by alramire         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,18 +29,20 @@ libft:
 	@make -C ./libft
 	@$(AR) libft.a $(wildcard ./libft/*.o)
 
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(INCLUDE) $(OBJS) -L./libft -o $(NAME)
-#$(CC) $(FLAGS) $(INCLUDE) -o $(NAME) $(OBJS) -L./libft -lft
-
-%.o: %.c
-	$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
-
 #$(NAME): libft $(SRCS)
 #	$(CC) $(FLAGS) $(INCLUDE) -c $(SRCS)
 #	$(AR) $(NAME) $(OBJS)
 #	$(LIB) $(NAME)
 #	chmod +x $(NAME)
+
+$(NAME): $(OBJS)
+#$(CC) $(FLAGS) $(INCLUDE) $(OBJS) -L./libft -o $(NAME)
+	$(CC) $(FLAGS) $(INCLUDE) -o $(NAME) $(OBJS) -L./libft -lft
+
+%.o: %.c
+	$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
+
+
 
 #$(NAME):
 #	$(CC)  $(FLAGS) $(SRCS)
