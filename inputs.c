@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:26:02 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/25 18:37:25 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/26 11:39:59 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char **norm_input(int argc, char **argv)
 	if(argc == 2)
 		argv = norm_two_args(argc, argv);
 	else
-		exit(1);
+		exit(write(2, "Error\n", 6));
 	return(argv);
 }
 

@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:59:21 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/25 16:57:00 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/26 15:20:28 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void fill_stack (t_stack_list *stack, char **argv, int i)
 {
 	while(argv[i])
 	{
-		add_node(stack, ft_atoi(argv[i]));
+		new_node(stack, ft_atoi(argv[i]));
 		i++;
 	}
 }
@@ -36,7 +36,7 @@ t_stack_list *new_stack (int argc, char **argv)
 	return(stack);
 }
 
-void add_node (t_stack_list *stack, int value)
+void new_node (t_stack_list *stack, int value)
 {
 	t_stack_node *new_node;
 
@@ -83,8 +83,11 @@ int print_stack(t_stack_list *stack)
 	current = stack->head;
 	while (current)
 	{
-		printf("Stack print:\n\n Nodo[%i]: %d/n", i, current->value);
+		printf("Nodo[%i]: %d\n", i++, current->value);
 		current = current->next;
 	}
+	printf("Head: %i\n", stack->head->value);
+	printf("Tail: %i\n", stack->tail->value);
+	printf("\n");
 	return (0);
 }

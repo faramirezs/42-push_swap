@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:48:11 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/25 18:35:48 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/26 09:45:28 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ int main (int argc, char **argv) {
 	argv = norm_input(argc, argv);
 	stack_a = new_stack(argc, argv);
 	print_stack(stack_a);
+	swap(stack_a);
+	print_stack(stack_a);
+
+
 
 /* 	if (argc == 2)
 	{
