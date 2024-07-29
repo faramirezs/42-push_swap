@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:02:09 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/26 16:11:21 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:52:28 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ t_stack_list *new_stack (int argc, char **argv);
 void new_node (t_stack_list *stack, int value);
 void clear_stack (t_stack_list *stack);
 void clear_stack (t_stack_list *stack);
-int print_stack(t_stack_list *stack);
+int print_stack_value(t_stack_list *stack);
+int print_stack_curr_pos(t_stack_list *stack);
+int print_stack_targ_pos(t_stack_list *stack);
 
 
 //inputs
@@ -61,6 +63,12 @@ void reverse_rotate (t_stack_list *stack);
 void push(t_stack_list *src, t_stack_list *dest);
 
 //algorithm
+
+//positions
+void fill_current_position (t_stack_list *stack);
+int get_index (t_stack_list *stack, int value);
+int	get_target_pos(t_stack_list *stack, int index_b, int target_index, int target_pos);
+void fill_positions(t_stack_list *stack_a, t_stack_list *stack_b);
 
 //cost
 #endif

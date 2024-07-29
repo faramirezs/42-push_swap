@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:59:21 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/26 15:20:28 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:32:00 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_stack_list *new_stack (int argc, char **argv)
 	ft_memset(stack, 0, sizeof(t_stack_list));
 	if (argc == 2)
 		fill_stack(stack, argv, 0);
-	else
-		exit(write(2, "Error\n", 6));
+	else if (argc > 2)
+		fill_stack(stack, argv, 1);
 	return(stack);
 }
 
@@ -74,7 +74,7 @@ void clear_stack (t_stack_list *stack)
 	}
 }
 
-int print_stack(t_stack_list *stack)
+int print_stack_value(t_stack_list *stack)
 {
 	t_stack_node *current;
 	int i;
@@ -88,6 +88,41 @@ int print_stack(t_stack_list *stack)
 	}
 	printf("Head: %i\n", stack->head->value);
 	printf("Tail: %i\n", stack->tail->value);
+	printf("\n");
+	return (0);
+}
+
+int print_stack_curr_pos(t_stack_list *stack)
+{
+	t_stack_node *current;
+	int i;
+
+	i = 1;
+	current = stack->head;
+	while (current)
+	{
+		printf("Current pos[%i]: %d\n", i++, current->current_pos);
+		current = current->next;
+	}
+	printf("Head: %i\n", stack->head->current_pos);
+	printf("Tail: %i\n", stack->tail->current_pos);
+	printf("\n");
+	return (0);
+}
+int print_stack_targ_pos(t_stack_list *stack)
+{
+	t_stack_node *current;
+	int i;
+
+	i = 1;
+	current = stack->head;
+	while (current)
+	{
+		printf("Target pos[%i]: %d\n", i++, current->target_pos);
+		current = current->next;
+	}
+	printf("Head: %i\n", stack->head->target_pos);
+	printf("Tail: %i\n", stack->tail->target_pos);
 	printf("\n");
 	return (0);
 }
