@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:59:21 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/29 17:32:00 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/30 11:08:37 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int print_stack_value(t_stack_list *stack)
 	current = stack->head;
 	while (current)
 	{
-		printf("Nodo[%i]: %d\n", i++, current->value);
+		printf("Nodo[%i]: %d| index(%i)\n", i++, current->value, current->index);
 		current = current->next;
 	}
 	printf("Head: %i\n", stack->head->value);
@@ -123,6 +123,23 @@ int print_stack_targ_pos(t_stack_list *stack)
 	}
 	printf("Head: %i\n", stack->head->target_pos);
 	printf("Tail: %i\n", stack->tail->target_pos);
+	printf("\n");
+	return (0);
+}
+int print_stack_index(t_stack_list *stack)
+{
+	t_stack_node *current;
+	int i;
+
+	i = 1;
+	current = stack->head;
+	while (current)
+	{
+		printf("Index[%i]: %d\n", i++, current->index);
+		current = current->next;
+	}
+	printf("Head: %i\n", stack->head->index);
+	printf("Tail: %i\n", stack->tail->index);
 	printf("\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:02:09 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/29 17:52:28 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/30 09:29:10 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void clear_stack (t_stack_list *stack);
 int print_stack_value(t_stack_list *stack);
 int print_stack_curr_pos(t_stack_list *stack);
 int print_stack_targ_pos(t_stack_list *stack);
-
+int print_stack_index(t_stack_list *stack);
 
 //inputs
 char **norm_input(int argc, char **argv);
@@ -71,4 +71,9 @@ int	get_target_pos(t_stack_list *stack, int index_b, int target_index, int targe
 void fill_positions(t_stack_list *stack_a, t_stack_list *stack_b);
 
 //cost
+
+
+//index
+void fill_index (t_stack_list *stack);
+t_stack_node *find_highest_value_no_index(t_stack_list *stack);
 #endif
