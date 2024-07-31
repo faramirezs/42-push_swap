@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 10:59:32 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/25 18:03:50 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/31 10:45:49 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void rotate (t_stack_list *stack)
 		tmp = stack->head;
 		stack->head = stack->head->next;
 		tmp->prev = stack->tail;
-		stack->head->prev = NULL;
+		stack->head->next->prev = NULL;
 		tmp->next = NULL;
-		tmp->prev->next = tmp;
+		stack->tail->next = tmp;
 		stack->tail = tmp;
 	}
 	else
