@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 10:59:32 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/31 10:45:49 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/31 18:02:58 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,17 @@ void swap(t_stack_list *stack)
 
 void rotate (t_stack_list *stack)
 {
-	if (stack->head && stack->head->next)
-	{
-		t_stack_node * tmp;
+	t_stack_node *tmp;
 
-		tmp = stack->head;
-		stack->head = stack->head->next;
-		tmp->prev = stack->tail;
-		stack->head->next->prev = NULL;
-		tmp->next = NULL;
-		stack->tail->next = tmp;
-		stack->tail = tmp;
-	}
-	else
+	if (stack->head == NULL || stack->head->next == NULL)
 		return;
-
+	tmp = stack->head;
+	stack->head = stack->head->next;
+	stack->head->prev = NULL;
+	tmp->prev = stack->tail;
+	tmp->next = NULL;
+	stack->tail->next = tmp;
+	stack->tail = tmp;
 }
 
 void reverse_rotate (t_stack_list *stack)

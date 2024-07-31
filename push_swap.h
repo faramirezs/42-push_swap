@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:02:09 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/31 12:02:55 by alramire         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:43:55 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void sort_sm(t_stack_list *stack);
 int is_sorted(t_stack_list *stack);
 //void sort_l(t_stack_list *stack);
 void fill_sort_stack_b (t_stack_list *stack_a, t_stack_list *stack_b);
+void max_top_stack_b(t_stack_list *stack_b);
 
 
 //index
