@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 13:55:42 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/31 18:08:49 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/03 13:05:30 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,38 @@ void sort_sm(t_stack_list *stack)
 {
 	if (stack->head->next->index < stack->head->index && stack->head->index < stack->tail->index)
 	{
+		#213
+
 		swap(stack);
 		write(1, "sa\n", 3);
 	}
 	else if (stack->tail->index < stack->head->index && stack->head->index < stack->head->next->index)
 	{
+		#231
+
 		reverse_rotate(stack);
 		write(1, "rra\n", 4);
 	}
-	else
+	else if (stack->tail->index < stack->head->index && stack->tail->index > stack->head->next->index)
 	{
+		#312
+
+		rotate(stack);
+		write(1, "ra\n", 4);
+	}
+	else if (stack->tail->index > stack->head->index && stack->head->index < stack->head->next->index)
+	{
+		#132
+
+		swap(stack);
+		write(1, "sa\n", 3);
+		rotate(stack);
+		write(1, "ra\n", 4);
+	}
+	else if (stack->tail->index < stack->head->index && stack->tail->index < stack->head->next->index)
+	{
+		#321321
+
 		swap(stack);
 		write(1, "sa\n", 3);
 		reverse_rotate(stack);

@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alramire <alramire@student.42.fr>          +#+  +:+       +#+         #
+#    By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 11:33:51 by alramire          #+#    #+#              #
-#    Updated: 2024/07/31 09:45:56 by alramire         ###   ########.fr        #
+#    Updated: 2024/08/03 13:08:02 by alejandrora      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-CC = cc
+CC = gcc -g
 FLAGS = -Wall -Wextra -Werror
 INCLUDE = -I./include -I./libft
 LIBFT = ./libft/libft.a
