@@ -6,7 +6,7 @@
 /*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 13:55:42 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/03 13:05:30 by alejandrora      ###   ########.fr       */
+/*   Updated: 2024/08/04 21:38:00 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ void sort(t_stack_list *stack_a, t_stack_list *stack_b)
 		}
 		else
 		{
-			fill_sort_stack_b(stack_a, stack_b);
-			sort_sm(stack_a);
+			sort_l(stack_a, stack_b);
 		}
 	}
 }
@@ -93,10 +92,20 @@ int is_sorted(t_stack_list *stack)
 	}
 	return (1);
 }
-/* void sort_l(t_stack_list *stack_a, t_stack_list	*stack_b)
-{
 
-} */
+void sort_l(t_stack_list *stack_a, t_stack_list	*stack_b)
+{
+	fill_sort_stack_b(stack_a, stack_b);
+	sort_sm(stack_a);
+	while (stack_b->lenght > 0)
+	{
+		fill_positions(stack_a, stack_b);
+		get_cost(stack_a, stack_b);
+		do_cheapest_move(stack_a, stack_b);
+	}
+	if (is_sorted(stack_a) == 0)
+		adjust_stack(stack_a);
+}
 
 void fill_sort_stack_b (t_stack_list *stack_a, t_stack_list *stack_b)
 {
@@ -138,7 +147,32 @@ void max_top_stack_b(t_stack_list *stack_b)
 
 }
 
+void adjust_stack(t_stack_list *stack_a)
+{
+	int	lowest_pos;
+	int	len;
 
+	len = stack_a->lenght;
+	lowest_pos = lowest_index(stack_a);
+	if (lowest_pos > len / 2)
+	{
+		while (lowest_pos < len)
+		{
+			reverse_rotate(stack_a);
+			write(1, "rra\n", 4);
+			lowest_pos++;
+		}
+	}
+	else
+	{
+		while (lowest_pos > 0)
+		{
+			rotate(stack_a);
+			write(1, "ra\n", 3);
+			lowest_pos--;
+		}
+	}
+}
 
 /* void fill_sort_stack_b (t_stack_list *stack_a, t_stack_list *stack_b)
 {

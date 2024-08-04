@@ -6,7 +6,7 @@
 /*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:09:51 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/03 22:06:54 by alejandrora      ###   ########.fr       */
+/*   Updated: 2024/08/04 21:35:14 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,40 +23,46 @@ void	fill_positions(t_stack_list *stack_a, t_stack_list *stack_b)
 	target_pos = 0;
 	while (cur_b)
 	{
-		target_pos = get_targ_pos(stack_a, cur_b->index);
+		target_pos = get_target_pos(stack_a, cur_b->index, INT_MAX, target_pos);
 		cur_b->target_pos = target_pos;
 		cur_b = cur_b->next;
 	}
 }
 
-int get_targ_pos(t_stack_list *stack_a, int index_b)
+
+
+/* int get_target_pos(t_stack_list *stack_a, int index_b)
 {
 	t_stack_node *current;
 	int target_pos;
-	int min_dif;
+	int target_index;
 
 	current = stack_a->head;
-	target_pos = 0;
-	min_dif = INT_MAX;
+	target_pos = -1;
+	target_index = INT_MAX;
 	while(current)
 	{
-		if(current->index > index_b)
+		if(current->index > index_b && current->index < target_index)
 		{
-			if(current->index - index_b < min_dif)
-			{
-				target_pos = current->index;
-				min_dif = current->index - index_b;
-			}
+			target_index = current->index;
+			target_pos = current->current_pos;
 		}
 		current = current->next;
 	}
-	if (target_pos != 0)
+	if (target_index != INT_MAX)
 		return(target_pos);
-	else
-		target_pos = lowest_index(stack_a);
-	return(target_pos);
-
-}
+	current = stack_a->head;
+	while (current)
+	{
+		if (current->index < target_index)
+		{
+			target_index = current->index;
+			target_pos = current->current_pos;
+		}
+		current = current->next;
+	}
+	return (target_pos);
+} */
 
 int lowest_index (t_stack_list *stack)
 {
@@ -116,7 +122,7 @@ void fill_current_position (t_stack_list *stack)
 	}
 }
 
-/*int	get_target_pos(t_stack_list *stack, int index_b, int target_index,
+int	get_target_pos(t_stack_list *stack, int index_b, int target_index,
 	int target_pos)
 {
 	t_stack_node	*current_a;
@@ -144,7 +150,7 @@ void fill_current_position (t_stack_list *stack)
 		current_a = current_a->next;
 	}
 	return (target_pos);
-}*/
+}
 
 /* int get_target_pos(t_stack_list *stack_a, int b_value)
 {

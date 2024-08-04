@@ -6,7 +6,7 @@
 #    By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 11:33:51 by alramire          #+#    #+#              #
-#    Updated: 2024/08/03 13:08:02 by alejandrora      ###   ########.fr        #
+#    Updated: 2024/08/04 21:09:34 by alejandrora      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS = -Wall -Wextra -Werror
 INCLUDE = -I./include -I./libft
 LIBFT = ./libft/libft.a
 # SRCS = *.c
-SRCS = inputs.c stack.c moves.c positions.c index.c sort.c main.c
+SRCS = inputs.c stack.c moves.c positions.c index.c sort.c cost.c cheap_move.c main.c
 # OBJS = *.o
 OBJS = $(SRCS:.c=.o) # This is a substitution pattern, where the files ends with c it replaces with o
 AR = ar rc

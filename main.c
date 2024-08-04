@@ -6,7 +6,7 @@
 /*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:48:11 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/03 22:08:01 by alejandrora      ###   ########.fr       */
+/*   Updated: 2024/08/04 21:28:43 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ int main (int argc, char **argv) {
 	fill_current_position(stack_a);
 	print_stack_value(stack_a);
 	sort(stack_a, stack_b);
-	print_stack_value(stack_b);
+	//print_stack_value(stack_b);
 	print_stack_value(stack_a);
-	fill_positions(stack_a, stack_b);
+	//fill_positions(stack_a, stack_b);
+	//print_stack_value(stack_b);
+	//print_stack_value(stack_a);
+
 
 
 /* 	if (argc == 2)

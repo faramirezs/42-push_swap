@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:59:21 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/30 11:08:37 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/04 17:53:14 by alejandrora      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int print_stack_value(t_stack_list *stack)
 	current = stack->head;
 	while (current)
 	{
-		printf("Nodo[%i]: %d| index(%i)\n", i++, current->value, current->index);
+		printf("Nodo[%i]: %d| index(%i) | cur_pos(%i) | targ_pos(%i) | cost_b(%i)\n", i++, current->value, current->index, current->current_pos, current->target_pos, current->cost_b);
 		current = current->next;
 	}
 	printf("Head: %i\n", stack->head->value);
