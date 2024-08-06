@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:02:09 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/04 21:35:39 by alejandrora      ###   ########.fr       */
+/*   Updated: 2024/08/06 13:15:08 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "libft.h"
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -72,32 +71,37 @@ int	ft_abs(int n);
 //positions
 void fill_current_position (t_stack_list *stack);
 int get_index (t_stack_list *stack, int value);
-int	get_target_pos(t_stack_list *stack, int index_b, int target_index, int target_pos);
-//int get_target_pos(t_stack_list *stack_a, int index_b);
+//int	get_target_pos(t_stack_list *stack, int index_b, int target_index, int target_pos);
+int get_target_pos(t_stack_list *stack_a, int index_b);
 void fill_positions(t_stack_list *stack_a, t_stack_list *stack_b);
 int lowest_index(t_stack_list *stack);
 
 //cost
-void get_cost(t_stack_list *stack_a, t_stack_list *stack_b);
+void	get_cost(t_stack_list *stack_a, t_stack_list *stack_b);
 void	cost_is_positive(t_stack_list *stack_a, t_stack_list *stack_b, int *cheapest_a, int *cheapest_b);
 void	cost_is_negative(t_stack_list *stack_a, t_stack_list *stack_b, int *cheapest_a, int *cheapest_b);
 void	cost_a_is_positive(t_stack_list *stack_a, t_stack_list *stack_b, int *cheapest_a, int *cheapest_b);
 void	cost_b_is_positive(t_stack_list *stack_a, t_stack_list *stack_b, int *cheapest_a, int *cheapest_b);
 
 //sorting
-void sort(t_stack_list *stack_a, t_stack_list *stack_b);
-void sort_sm(t_stack_list *stack);
-int is_sorted(t_stack_list *stack);
+void	sort(t_stack_list *stack_a, t_stack_list *stack_b);
+void	sort_sm(t_stack_list *stack);
+int		is_sorted(t_stack_list *stack);
 //void sort_l(t_stack_list *stack);
-void fill_sort_stack_b(t_stack_list *stack_a, t_stack_list *stack_b);
-void max_top_stack_b(t_stack_list *stack_b);
-void sort_l(t_stack_list *stack_a, t_stack_list	*stack_b);
-void adjust_stack(t_stack_list *stack_a);
+void	fill_sort_stack_b(t_stack_list *stack_a, t_stack_list *stack_b);
+void	max_top_stack_b(t_stack_list *stack_b);
+void	sort_l(t_stack_list *stack_a, t_stack_list	*stack_b);
+void	adjust_stack(t_stack_list *stack_a);
 
 //index
-void fill_index(t_stack_list *stack);
+void 	fill_index(t_stack_list *stack);
 t_stack_node *find_highest_value_no_index(t_stack_list *stack);
 int lowest_index (t_stack_list *stack);
 
+//sources
+char	**ft_split(char const *s, char c);
+int		ft_atoi(const char *str);
+int		ft_isdigit(int c);
+void	*ft_memset(void *s, int c, size_t n);
 
 #endif

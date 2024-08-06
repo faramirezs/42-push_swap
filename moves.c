@@ -6,38 +6,38 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 10:59:32 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/31 18:02:58 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:38:49 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(t_stack_list *stack)
+void	swap(t_stack_list *stack)
 {
+	t_stack_node	*first;
+	t_stack_node	*second;
+
 	if (stack->head && stack->head->next)
 	{
-		t_stack_node *first;
-		t_stack_node *second;
-
 		second = stack->head;
 		first = stack->head->next;
 		first->prev = NULL;
 		second->next = first->next;
 		first->next = second;
-		if(second->next)
+		if (second->next)
 			second->next->prev = second;
 		stack->head = first;
 	}
 	else
-		return;
+		return ;
 }
 
-void rotate (t_stack_list *stack)
+void	rotate(t_stack_list *stack)
 {
-	t_stack_node *tmp;
+	t_stack_node	*tmp;
 
 	if (stack->head == NULL || stack->head->next == NULL)
-		return;
+		return ;
 	tmp = stack->head;
 	stack->head = stack->head->next;
 	stack->head->prev = NULL;
@@ -47,12 +47,12 @@ void rotate (t_stack_list *stack)
 	stack->tail = tmp;
 }
 
-void reverse_rotate (t_stack_list *stack)
+void	reverse_rotate(t_stack_list *stack)
 {
+	t_stack_node	*tmp;
+
 	if (stack->tail && stack->tail->prev)
 	{
-		t_stack_node * tmp;
-
 		tmp = stack->tail;
 		stack->tail = stack->tail->prev;
 		stack->tail->next = NULL;
@@ -62,16 +62,15 @@ void reverse_rotate (t_stack_list *stack)
 		stack->head = tmp;
 	}
 	else
-		return;
-
+		return ;
 }
 
-void push(t_stack_list *src, t_stack_list *dest)
+void	push(t_stack_list *src, t_stack_list *dest)
 {
+	t_stack_node	*tmp_src;
+
 	if (src->head)
 	{
-		t_stack_node *tmp_src;
-
 		tmp_src = src->head->next;
 		if (tmp_src)
 			tmp_src->prev = NULL;
@@ -88,5 +87,5 @@ void push(t_stack_list *src, t_stack_list *dest)
 		dest->lenght++;
 	}
 	else
-		return;
+		return ;
 }

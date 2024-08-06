@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 13:55:42 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/04 21:38:00 by alejandrora      ###   ########.fr       */
+/*   Updated: 2024/08/06 13:12:07 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,59 +3,35 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+         #
+#    By: alramire <alramire@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 11:33:51 by alramire          #+#    #+#              #
-#    Updated: 2024/08/04 21:09:34 by alejandrora      ###   ########.fr        #
+#    Updated: 2024/08/06 13:55:52 by alramire         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-CC = gcc -g
+CC = cc
 FLAGS = -Wall -Wextra -Werror
-INCLUDE = -I./include -I./libft
-LIBFT = ./libft/libft.a
-# SRCS = *.c
-SRCS = inputs.c stack.c moves.c positions.c index.c sort.c cost.c cheap_move.c main.c
-# OBJS = *.o
-OBJS = $(SRCS:.c=.o) # This is a substitution pattern, where the files ends with c it replaces with o
+INCLUDE = -I./include
+SRCS = inputs.c stack.c moves.c target_pos.c positions.c index.c sort.c cost.c cheap_move.c sources.c ft_split.c main.c
+OBJS = $(SRCS:.c=.o)
 AR = ar rc
 RM = rm -f
-LIB	= ranlib
 
-all: libft $(NAME)
-
-libft:
-	@make -C ./libft
-	@$(AR) libft.a $(wildcard ./libft/*.o)
-
-#$(NAME): libft $(SRCS)
-#	$(CC) $(FLAGS) $(INCLUDE) -c $(SRCS)
-#	$(AR) $(NAME) $(OBJS)
-#	$(LIB) $(NAME)
-#	chmod +x $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
-#$(CC) $(FLAGS) $(INCLUDE) $(OBJS) -L./libft -o $(NAME)
-	$(CC) $(FLAGS) $(INCLUDE) -o $(NAME) $(OBJS) -L./libft -lft
+	$(CC) $(FLAGS) $(INCLUDE) -o $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 
-
-
-#$(NAME):
-#	$(CC)  $(FLAGS) $(SRCS)
-#	$(AR)  $(NAME) $(OBJS)
-#	$(LIB) $(NAME)
-
 clean:
 	$(RM) $(OBJS)
-	@make -C ./libft clean
 
 fclean: clean
 	$(RM) $(NAME)
-	@make -C ./libft fclean
 
 re: fclean all
 

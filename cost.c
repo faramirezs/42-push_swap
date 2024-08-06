@@ -3,29 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:25:02 by alejandrora       #+#    #+#             */
-/*   Updated: 2024/08/04 21:24:06 by alejandrora      ###   ########.fr       */
+/*   Updated: 2024/08/06 13:39:51 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void get_cost (t_stack_list *stack_a, t_stack_list *stack_b)
+void	get_cost(t_stack_list *stack_a, t_stack_list *stack_b)
 {
-	t_stack_node *current;
+	t_stack_node	*current;
 
 	current = stack_b->head;
-	while(current)
+	while (current)
 	{
 		current->cost_b = current->current_pos;
-		if(current->current_pos > stack_b->lenght / 2)
-			//current->cost_b = stack_b->lenght - current->current_pos + 2;
+		if (current->current_pos > stack_b->lenght / 2)
 			current->cost_b = (stack_b->lenght - current->current_pos) * -1;
 		current->cost_a = current->target_pos;
 		if (current->target_pos > stack_a->lenght / 2)
-			//current->cost_a = stack_b->lenght - current->target_pos + 2;
 			current->cost_a = (stack_a->lenght - current->target_pos) * -1;
 		current = current->next;
 	}
