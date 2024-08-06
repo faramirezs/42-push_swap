@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   free_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejandroramirez <alejandroramirez@stud    +#+  +:+       +#+        */
+/*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/04 16:49:13 by alejandrora       #+#    #+#             */
-/*   Updated: 2024/05/04 20:19:56 by alejandrora      ###   ########.fr       */
+/*   Created: 2024/08/06 16:07:45 by alramire          #+#    #+#             */
+/*   Updated: 2024/08/06 16:08:04 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+#include "push_swap.h"
+
+void	free_args(int argc, char **argv)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (s[i])
+	if (argc == 2)
 	{
-		(*f)(i, &s[i]);
-		i++;
+		while (argv[i])
+			free(argv[i++]);
+		free(argv);
 	}
 }

@@ -6,25 +6,37 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:26:02 by alramire          #+#    #+#             */
-/*   Updated: 2024/07/26 11:39:59 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/06 17:29:06 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char **norm_input(int argc, char **argv)
+char	**norm_input(int argc, char **argv)
 {
-	if(argc == 2)
+	int	i;
+
+	if (argc == 2)
 		argv = norm_two_args(argc, argv);
+	else if (argc >= 3)
+	{
+		i = 1;
+		while (i < argc)
+		{
+			if (is_not_integer(argv[i]) || out_of_limit(argv[i]))
+				exit(write(2, "Error\n", 6));
+			i++;
+		}
+	}
 	else
 		exit(write(2, "Error\n", 6));
-	return(argv);
+	return (argv);
 }
 
-char **norm_two_args(int argc, char **argv)
+char	**norm_two_args(int argc, char **argv)
 {
-	int i;
-	char **split;
+	int		i;
+	char	**split;
 
 	split = ft_split(argv[1], ' ');
 	if (!split || !*split)
@@ -32,7 +44,7 @@ char **norm_two_args(int argc, char **argv)
 	i = 0;
 	while (split[i])
 	{
-		if(is_not_integer(split[i]) || out_of_limit(split[i]))
+		if (is_not_integer(split[i]) || out_of_limit(split[i]))
 		{
 			free_args(argc, split);
 			exit(write(2, "Error\n", 6));
@@ -41,41 +53,52 @@ char **norm_two_args(int argc, char **argv)
 	}
 	return (split);
 }
-int is_not_integer(char *argv)
+
+int	is_not_integer(char *argv)
 {
-	if((*argv != '+' || *argv != '-') && ft_isdigit(*argv) == 0)
-		return(1);
-	if((*argv == '+' || *argv == '-') && ft_isdigit(*(argv + 1) == 0))
-		return(1);
-	while(*++argv)
+	if (*argv != '+' && *argv != '-' && ft_isdigit(*argv) == 0)
+		return (1);
+	if ((*argv == '+' || *argv == '-') && ft_isdigit(*(argv + 1)) == 0)
+		return (1);
+	while (*++argv)
 	{
-		if(ft_isdigit(*argv) == 0)
-			return(1);
+		if (ft_isdigit(*argv) == 0)
+			return (1);
 	}
 	return (0);
 }
-int out_of_limit(char *argv)
+
+int	out_of_limit(char *argv)
 {
-	int n;
+	int	n;
 
 	n = ft_atoi(argv);
 	if (n > INT_MAX || n < INT_MIN)
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
 
-//void is_duplicated() esta funcion tiene los siguientes input param: stack, argv, argc, current note y verifica que el current node no se repita con los otros nodos
-
-
-void free_args(int argc, char **argv)
+int	is_duplicated(t_stack_list *stack)
 {
-	int i;
+	t_stack_node	*current1;
+	t_stack_node	*current2;
+	int				dup;
 
-	i = 0;
-	if (argc == 2)
+	dup = 0;
+	current1 = stack->head;
+	while (current1)
 	{
-		while (argv[i])
-			free(argv[i++]);
-		free(argv);
+		current2 = stack->head;
+		while (current2)
+		{
+			if (current1->value == current2->value)
+				dup++;
+			current2 = current2->next;
+		}
+		if (dup > 1)
+			return (1);
+		dup = 0;
+		current1 = current1->next;
 	}
+	return (0);
 }

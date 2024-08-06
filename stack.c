@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:59:21 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 13:52:19 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:23:30 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	fill_stack(t_stack_list *stack, char **argv, int i)
 		new_node(stack, ft_atoi(argv[i]));
 		i++;
 	}
+	if (is_duplicated(stack))
+		exit(write(2, "Error\n", 6));
+
 }
 
 t_stack_list	*new_stack(int argc, char **argv)
