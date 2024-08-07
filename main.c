@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:48:11 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/07 09:54:54 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 20:38:48 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,18 @@ int	main(int argc, char **argv)
 	argv = norm_input(argc, argv);
 	stack_a = new_stack(argc, argv);
 	fill_index(stack_a);
+	print_stack_value(stack_a);
 	stack_b = new_stack(0, NULL);
 	fill_current_position(stack_a);
 	sort(stack_a, stack_b);
+	if (is_sorted(stack_a) == 0)
+	{
+		stack_b = new_stack(0, NULL);
+		fill_current_position(stack_a);
+		sort(stack_a, stack_b);
+		printf("No organizo a la primera\n");
+	}
+	print_stack_value(stack_a);
 	free_args(argc, argv);
 	clear_stack(stack_a);
 	clear_stack(stack_b);

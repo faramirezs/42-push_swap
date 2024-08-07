@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:26:02 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 17:29:06 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 20:23:16 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,10 @@ int	is_not_integer(char *argv)
 
 int	out_of_limit(char *argv)
 {
-	int	n;
+	long	n;
 
+	if (!argv || ft_strlen(argv) == 0 || ft_strlen(argv) > 11)
+		return (1);
 	n = ft_atoi(argv);
 	if (n > INT_MAX || n < INT_MIN)
 		return (1);

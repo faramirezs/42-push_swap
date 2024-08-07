@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:26:48 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 13:47:21 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 20:23:45 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,39 @@ int	ft_isspace(int c)
 }
 
 int	ft_atoi(const char *str)
+{
+	int			i;
+	int			s;
+	long long	n;
+
+	i = 0;
+	s = 1;
+	n = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' && str[i + 1] != '-')
+		i++;
+	if (str[i] == 45)
+	{
+		s = s * -1;
+		i++;
+	}
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		n = n * 10 + (str[i] - '0');
+/* 		if ((s == 1 && n > INT_MAX) || (s == -1 && n < INT_MIN))
+		{
+			if (s == 1)
+				return (INT_MAX);
+			else
+				return (INT_MIN);
+		} */
+		i++;
+	}
+	return (n * s);
+}
+
+/* int	ft_atoi(const char *str)
 {
 	int	i;
 	int	s;
@@ -48,7 +81,7 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (n * s);
-}
+} */
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -60,4 +93,14 @@ void	*ft_memset(void *s, int c, size_t n)
 	while (i < n)
 		ptr[i++] = (unsigned char)c;
 	return (s);
+}
+
+size_t	ft_strlen(char const *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

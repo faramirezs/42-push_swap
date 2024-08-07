@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 13:55:42 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/07 10:24:19 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:11:09 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sort_sm(t_stack_list *stack)
 	if (stack->head->index > stack->tail->index)
 	{
 		reverse_rotate(stack);
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 	}
 	if (stack->head->next->index > stack->tail->index)
 	{
@@ -97,7 +97,7 @@ void	fill_sort_stack_b(t_stack_list *stack_a, t_stack_list *stack_b)
 		{
 			max_top_stack_b(stack_b);
 			push(stack_a, stack_b);
-			write(1, "pb\n", 4);
+			write(1, "pb\n", 3);
 		}
 		else if (stack_a->head->index < stack_a->tail->index
 			&& stack_a->tail->index > stack_a->lenght / 2)

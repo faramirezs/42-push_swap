@@ -6,11 +6,41 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:50:05 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 13:51:55 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:28:15 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* int	get_target_pos(t_stack_list *stack, int index_b, int target_index,
+		int target_pos)
+{
+	t_stack_node	*current_a;
+
+	current_a = stack->head;
+	while (current_a)
+	{
+		if (current_a->index > index_b && current_a->index < target_index)
+		{
+			target_index = current_a->index;
+			target_pos = current_a->current_pos;
+		}
+		current_a = current_a->next;
+	}
+	if (target_index != INT_MAX)
+		return (target_pos);
+	current_a = stack->head;
+	while (current_a)
+	{
+		if (current_a->index < target_index)
+		{
+			target_index = current_a->index;
+			target_pos = current_a->current_pos;
+		}
+		current_a = current_a->next;
+	}
+	return (target_pos);
+} */
 
 int	find_initial_target_pos(t_stack_list *stack_a, int index_b,
 		int *target_index)
