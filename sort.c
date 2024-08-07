@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 13:55:42 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 17:20:51 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 10:24:19 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	sort(t_stack_list *stack_a, t_stack_list *stack_b)
 {
 	if (is_sorted(stack_a) == 1)
 	{
-		write(1, "Error\n", 6);
 		return ;
 	}
 	else

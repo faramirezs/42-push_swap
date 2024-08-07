@@ -6,13 +6,13 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:59:21 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 16:23:30 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 09:54:39 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fill_stack(t_stack_list *stack, char **argv, int i)
+void	fill_stack(t_stack_list *stack, int argc, char **argv, int i)
 {
 	while (argv[i])
 	{
@@ -20,7 +20,12 @@ void	fill_stack(t_stack_list *stack, char **argv, int i)
 		i++;
 	}
 	if (is_duplicated(stack))
+	{
+		clear_stack(stack);
+		free_args(argc, argv);
 		exit(write(2, "Error\n", 6));
+	}
+
 
 }
 
@@ -30,12 +35,16 @@ t_stack_list	*new_stack(int argc, char **argv)
 
 	stack = (t_stack_list *)malloc(sizeof(t_stack_list));
 	if (!stack)
+	{
+		clear_stack(stack);
+		free_args(argc, argv);
 		exit(write(2, "Error\n", 6));
+	}
 	ft_memset(stack, 0, sizeof(t_stack_list));
 	if (argc == 2)
-		fill_stack(stack, argv, 0);
+		fill_stack(stack, argc, argv, 0);
 	else if (argc > 2)
-		fill_stack(stack, argv, 1);
+		fill_stack(stack, argc, argv, 1);
 	return (stack);
 }
 

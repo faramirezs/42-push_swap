@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:02:09 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 16:12:09 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 09:55:05 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ typedef struct s_stack_list
 }						t_stack_list;
 
 // stack
-void					fill_stack(t_stack_list *stack, char **argv, int i);
+void					fill_stack(t_stack_list *stack, int argc, char **argv,
+							int i);
 t_stack_list			*new_stack(int argc, char **argv);
 void					new_node(t_stack_list *stack, int value);
 void					clear_stack(t_stack_list *stack);

@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 08:50:18 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 14:44:15 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/07 09:43:45 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	fill_index(t_stack_list *stack)
 {
 	t_stack_node	*current;
 	int				len;
-
 	len = stack->lenght;
 	current = NULL;
 	while (len > 0)
