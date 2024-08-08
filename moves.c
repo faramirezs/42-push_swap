@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 10:59:32 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/06 13:38:49 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/08 10:36:22 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,17 @@ void	swap(t_stack_list *stack)
 	t_stack_node	*first;
 	t_stack_node	*second;
 
-	if (stack->head && stack->head->next)
-	{
-		second = stack->head;
-		first = stack->head->next;
-		first->prev = NULL;
-		second->next = first->next;
-		first->next = second;
-		if (second->next)
-			second->next->prev = second;
-		stack->head = first;
-	}
-	else
+	if (stack->head == NULL || stack->head->next == NULL)
 		return ;
+	second = stack->head;
+	first = stack->head->next;
+	second->next = first->next;
+	second->prev = first;
+	first->next = second;
+	first->prev = NULL;
+	if (second->next != NULL)
+		second->next->prev = second;
+	stack->head = first;
 }
 
 void	rotate(t_stack_list *stack)
@@ -51,41 +49,35 @@ void	reverse_rotate(t_stack_list *stack)
 {
 	t_stack_node	*tmp;
 
-	if (stack->tail && stack->tail->prev)
-	{
-		tmp = stack->tail;
-		stack->tail = stack->tail->prev;
-		stack->tail->next = NULL;
-		tmp->next = stack->head;
-		tmp->prev = NULL;
-		stack->head->prev = tmp;
-		stack->head = tmp;
-	}
-	else
+	if (stack->head == NULL || stack->head->next == NULL)
 		return ;
+	tmp = stack->tail;
+	stack->tail = stack->tail->prev;
+	stack->tail->next = NULL;
+	tmp->next = stack->head;
+	tmp->prev = NULL;
+	stack->head->prev = tmp;
+	stack->head = tmp;
 }
 
-void	push(t_stack_list *src, t_stack_list *dest)
+void	push(t_stack_list *src_stack, t_stack_list *dest_stack)
 {
-	t_stack_node	*tmp_src;
+	t_stack_node	*src_second;
 
-	if (src->head)
-	{
-		tmp_src = src->head->next;
-		if (tmp_src)
-			tmp_src->prev = NULL;
-		else
-			src->tail = NULL;
-		src->head->next = dest->head;
-		if (dest->head)
-			dest->head->prev = src->head;
-		dest->head = src->head;
-		if (!dest->tail)
-			dest->tail = src->head;
-		src->head = tmp_src;
-		src->lenght--;
-		dest->lenght++;
-	}
-	else
+	if (src_stack->head == NULL)
 		return ;
+	src_second = src_stack->head->next;
+	if (src_second)
+		src_second->prev = NULL;
+	else
+		src_stack->tail = NULL;
+	src_stack->head->next = dest_stack->head;
+	if (dest_stack->head)
+		dest_stack->head->prev = src_stack->head;
+	dest_stack->head = src_stack->head;
+	if (!dest_stack->tail)
+		dest_stack->tail = dest_stack->head;
+	src_stack->head = src_second;
+	src_stack->lenght--;
+	dest_stack->lenght++;
 }

@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:02:09 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/07 19:34:54 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/08 15:09:03 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int						ft_abs(int n);
 void					fill_current_position(t_stack_list *stack);
 int						get_index(t_stack_list *stack, int value);
 int						get_target_pos(t_stack_list *stack_a, int index_b);
-//int						get_target_pos(t_stack_list *stack, int index_b, int target_index, int target_pos);
 void					fill_positions(t_stack_list *stack_a,
 							t_stack_list *stack_b);
 int						lowest_index(t_stack_list *stack);
@@ -99,7 +98,6 @@ void					cost_b_is_positive(t_stack_list *stack_a,
 void					sort(t_stack_list *stack_a, t_stack_list *stack_b);
 void					sort_sm(t_stack_list *stack);
 int						is_sorted(t_stack_list *stack);
-// void sort_l(t_stack_list *stack);
 void					fill_sort_stack_b(t_stack_list *stack_a,
 							t_stack_list *stack_b);
 void					max_top_stack_b(t_stack_list *stack_b);
@@ -113,7 +111,7 @@ int						lowest_index(t_stack_list *stack);
 
 // sources
 char					**ft_split(char const *s, char c);
-int						ft_atoi(const char *str);
+long					ft_atoi(const char *str);
 int						ft_isdigit(int c);
 void					*ft_memset(void *s, int c, size_t n);
 size_t					ft_strlen(char const *s);

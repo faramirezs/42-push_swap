@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:59:21 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/07 09:54:39 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/08 15:08:09 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	fill_stack(t_stack_list *stack, int argc, char **argv, int i)
 		free_args(argc, argv);
 		exit(write(2, "Error\n", 6));
 	}
-
-
 }
 
 t_stack_list	*new_stack(int argc, char **argv)
@@ -84,24 +82,4 @@ void	clear_stack(t_stack_list *stack)
 		}
 		free(stack);
 	}
-}
-
-int	print_stack_value(t_stack_list *stack)
-{
-	t_stack_node	*current;
-	int				i;
-
-	i = 1;
-	current = stack->head;
-	while (current)
-	{
-		printf("Nodo[%i]:%d| index(%i) | cur_pos(%i) | targ_pos(%i) | cost_b(%i)\n", i++,
-			current->value, current->index, current->current_pos,
-			current->target_pos, current->cost_b);
-		current = current->next;
-	}
-	printf("Head: %i\n", stack->head->value);
-	printf("Tail: %i\n", stack->tail->value);
-	printf("\n");
-	return (0);
 }

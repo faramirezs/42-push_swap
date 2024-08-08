@@ -6,7 +6,7 @@
 /*   By: alramire <alramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:26:48 by alramire          #+#    #+#             */
-/*   Updated: 2024/08/07 20:23:45 by alramire         ###   ########.fr       */
+/*   Updated: 2024/08/08 12:53:05 by alramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_isspace(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int			i;
 	int			s;
@@ -45,13 +45,6 @@ int	ft_atoi(const char *str)
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		n = n * 10 + (str[i] - '0');
-/* 		if ((s == 1 && n > INT_MAX) || (s == -1 && n < INT_MIN))
-		{
-			if (s == 1)
-				return (INT_MAX);
-			else
-				return (INT_MIN);
-		} */
 		i++;
 	}
 	return (n * s);
